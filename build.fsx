@@ -108,7 +108,6 @@ let startWebServer () =
         >>= Writers.setHeader "Expires" "0"
         >>= browseHome ]
     startWebServerAsync serverConfig app |> snd |> Async.Start
-    Process.Start "http://localhost:8083/index.html" |> ignore
 
 Target "GenerateSlides" (fun _ ->
     !! (slidesDir @@ "*.md")
@@ -118,7 +117,9 @@ Target "GenerateSlides" (fun _ ->
 )
 
 Target "KeepRunning" (fun _ ->
-    use watcher = !! (slidesDir + "/**/*.*") |> WatchChanges (fun changes ->
+    use watcher =
+        !! (slidesDir + "/**/*.*")
+        -- ("*.sw?") |> WatchChanges (fun changes ->
          handleWatcherEvents changes
     )
 

@@ -1,42 +1,77 @@
-- title : FsReveal
-- description : Introduction to FsReveal
-- author : Karlkim Suwanmongkol
-- theme : night
+- title : language
+- description : open your mind by learning to think differently
+- author : Martin Schinz
+- theme : league
 - transition : default
 
 ***
 
-### What is FsReveal?
+### Why Language matters
 
-- Generates [reveal.js](http://lab.hakim.se/reveal-js/#/) presentation from [markdown](http://daringfireball.net/projects/markdown/)
-- Utilizes [FSharp.Formatting](https://github.com/tpetricek/FSharp.Formatting) for markdown parsing
-- Get it from [http://fsprojects.github.io/FsReveal/](http://fsprojects.github.io/FsReveal/)
+<ul>
+    <li class="fragment fade-in">Exchange of ideas</li>
+    <li class="fragment fade-in">Express inner state</li>
+    <li class="fragment fade-in">Model the world</li>
+    <li class="fragment fade-in">Freedom</li>
+</ul>
 
-![FsReveal](images/logo.png)
+
+![Intersection of thoughts](images/the-conversation.jpg)
+
 
 ***
 
-### Reveal.js
+- data-transition : zoom
 
-- A framework for easily creating beautiful presentations using HTML.
+### What does it mean to be free?
 
+- Physical
+- Political
+- Emotional
+- “Freedom of __Thought__” — George Orwell 1984
+ [https://en.wikipedia.org/wiki/Newspeak](https://en.wikipedia.org/wiki/Newspeak)<br />
+ [Some Characteristics of the Dual in Slovenian (http://www.slav.uni-sofia.bg/naum/en/node/1639)](http://www.slav.uni-sofia.bg/naum/en/node/1639)
 
-> **Atwood's Law**: any application that can be written in JavaScript, will eventually be written in JavaScript.
+' Prison
+' Communism
+' Love sick (needs better)
+' (NewSpeak / George Orwell)
+' Slovenian
+
 
 ***
 
-### FSharp.Formatting
+### Why should I care ?
 
-- F# tools for generating documentation (Markdown processor and F# code formatter).
-- It parses markdown and F# script file and generates HTML or PDF.
-- Code syntax highlighting support.
-- It also evaluates your F# code and produce tooltips.
+#### <span class="fragment zoom-in">I use Programming _Languages_</span>
+
+- Today code is written for people, not machines
+- Different languages enable different ways of thinking
+- Expressiveness enables higher levels of abstraction
+- Context matters (jvm / node / erts / native)
 
 ***
 
-### Syntax Highlighting
+### Language Taxonomy
 
-#### F# (with tooltips)
+**Paradigms**
+
+- OO
+- FP
+- Relational
+
+---
+
+### Programming Language history
+
+
+[Relationship Diagram](http://exploringdata.github.io/vis/programming-languages-influence-network/)
+
+[© Ramiro Gómez](http://ramiro.org/) ([@yaph](https://twitter.com/yaph))
+
+---
+
+#### F#
 
     let a = 5
     let factorial x = [1..x] |> List.reduce (*)
@@ -79,62 +114,6 @@
         };
     }
 
-
----
-
-#### Haskell
- 
-    [lang=haskell]
-    recur_count k = 1 : 1 : 
-        zipWith recurAdd (recur_count k) (tail (recur_count k))
-            where recurAdd x y = k * x + y
-
-    main = do
-      argv <- getArgs
-      inputFile <- openFile (head argv) ReadMode
-      line <- hGetLine inputFile
-      let [n,k] = map read (words line)
-      printf "%d\n" ((recur_count k) !! (n-1))
-
-*code from [NashFP/rosalind](https://github.com/NashFP/rosalind/blob/master/mark_wutka%2Bhaskell/FIB/fib_ziplist.hs)*
-
----
-
-### SQL
-
-    [lang=sql]
-    select *
-    from
-    (select 1 as Id union all select 2 union all select 3) as X
-    where Id in (@Ids1, @Ids2, @Ids3)
-
-*sql from [Dapper](https://code.google.com/p/dapper-dot-net/)*
-
----
-
-### C/AL
-
-    [lang=cal]
-    PROCEDURE FizzBuzz(n : Integer) r_Text : Text[1024];
-    VAR
-      l_Text : Text[1024];
-    BEGIN
-      r_Text := '';
-      l_Text := FORMAT(n);
-
-      IF (n MOD 3 = 0) OR (STRPOS(l_Text,'3') > 0) THEN
-        r_Text := 'Fizz';
-      IF (n MOD 5 = 0) OR (STRPOS(l_Text,'5') > 0) THEN
-        r_Text := r_Text + 'Buzz';
-      IF r_Text = '' THEN
-        r_Text := l_Text;
-    END;
-
-***
-
-**Bayes' Rule in LaTeX**
-
-$ \Pr(A|B)=\frac{\Pr(B|A)\Pr(A)}{\Pr(B|A)\Pr(A)+\Pr(B|\neg A)\Pr(\neg A)} $
 
 ***
 
